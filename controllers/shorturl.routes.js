@@ -19,7 +19,7 @@ shorturlRouter.post("/shorten", authenticate, async (req, res) => {
     res.send({ original_url, short_url });
   } else {
     const shortenid = uid.rnd();
-    const short_url = `http://localhost:${process.env.port}/${shortenid}`;
+    const short_url = `https://tough-bee-flip-flops.cyclic.app/${shortenid}`;
 
     try {
       const url = new UrlModel({ userID, original_url, short_url });
@@ -45,7 +45,7 @@ try{
 
 shorturlRouter.get("/:shortid", async (req, res) => {
   const id = req.params.shortid;
-  const short_url = `http://localhost:${process.env.port}/${id}`;
+  const short_url = `https://tough-bee-flip-flops.cyclic.app/${id}`;
 
   try {
     const url = await UrlModel.findOne({ short_url });
